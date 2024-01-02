@@ -1688,7 +1688,6 @@ public class KafkaCluster extends AbstractModel implements SupportsMetrics, Supp
      */
     private void buildBrokerConfiguration(NodeRef node, KafkaPool pool, KafkaBrokerConfigurationBuilder builder) {
         if (node.broker()) {
-
             if (this.kafkaMetadataConfigState.isZooKeeperOrMigration()) {
                 builder.withZookeeper(cluster);
                 LOGGER.infoCr(reconciliation, "withZookeeper on node [{}]", node.podName());
@@ -1706,7 +1705,6 @@ public class KafkaCluster extends AbstractModel implements SupportsMetrics, Supp
         }
 
         if (node.controller()) {
-
             if (this.kafkaMetadataConfigState.isPreMigrationOrKRaft() && this.kafkaMetadataConfigState.isZooKeeperOrPostMigration()) {
                 builder.withZookeeper(cluster);
                 builder.withZooKeeperMigration(true);

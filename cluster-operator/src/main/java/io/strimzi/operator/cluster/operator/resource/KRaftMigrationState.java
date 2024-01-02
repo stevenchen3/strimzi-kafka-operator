@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Java representation of the JSON response from the /v1/kraft-migration endpoint of the KafkaAgent
+ *
+ * When a KRaft migration is going on and because it can take some time, the operator checks its status on each reconcile.
+ * The /v1/kraft-migration endpoint of the KafkaAgent provides such information through a corresponding Kafka metric.
  */
 class KRaftMigrationState {
 

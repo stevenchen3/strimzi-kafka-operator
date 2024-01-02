@@ -92,11 +92,11 @@ public class KafkaStatus extends Status {
     }
 
     @Description("Defines where cluster metadata are stored. Possible values are: " +
-            "ZooKeeper if the metadata are stored in ZooKeeper " +
-            "KRaftMigration if the controllers are connected to ZooKeeper, together with brokers, and the migration process is running " +
-            "KRaftDualWriting if the migration process finished and the cluster is in dual-write mode " +
-            "KRaftPostMigration if the brokers are fully KRaft-based but controllers being rolled to disconnect from ZooKeeper " +
-            "KRaft if the metadata are stored in KRaft")
+            "ZooKeeper if the metadata are stored in ZooKeeper; " +
+            "KRaftMigration if the controllers are connected to ZooKeeper, together with brokers, and the migration process is running; " +
+            "KRaftDualWriting if the migration process finished and the cluster is in dual-write mode; " +
+            "KRaftPostMigration if the brokers are fully KRaft-based but controllers being rolled to disconnect from ZooKeeper; " +
+            "KRaft if the metadata are stored in KRaft.")
     public String getKafkaMetadataState() {
         return kafkaMetadataState;
     }

@@ -1073,6 +1073,14 @@ public class KafkaReconciler {
         return Future.succeededFuture();
     }
 
+    /**
+     * This method checks if a migration is still ongoing on the Kafka side, through the KafkaMetadataStateManager instance.
+     * A ZooKeeper to KRaft migration can take some time and, on each reconcile, the operator checks its status by calling this method.
+     * Internally, the KafkaMetadataStateManager instance is leveraging the endpoint exposed by the Kafka Agent which provides
+     * the KRaft migration state through a corresponding metric.
+     *
+     * @return  Future which completes when the check on the migration is done
+     */
     protected Future<Void> maybeKafkaMetadataMigrationInProgress() {
         KafkaMetadataConfigurationState kafkaMetadataConfigState = this.kafkaMetadataStateManager.getMetadataConfigurationState();
         // on each reconcile, would be useless to check migration status if it's not going on
